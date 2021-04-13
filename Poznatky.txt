@@ -1,0 +1,7 @@
+-tagy v serii
+-lze "udelat chybu" a potom to nacist znova
+- popsat nastaveni zavodu
+- udělat schema reader clienta
+- ruzne prepinace?
+
+Honza číslo: 603889921

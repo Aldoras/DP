@@ -1,0 +1,52 @@
+@page "/races"
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+@using Model
+
+<h1>Seznam závodů</h1>
+
+<p>Seznam vsech zavodů.</p>
+
+@if (races == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nazev</th>
+                <th>Organizér</th>
+                <th>Start</th>
+                <th>Konec</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Model.Races race in races)
+            {
+                <tr>
+                    <td>@race.Race_Name</td>
+                    <td>@race.Organiser</td>
+                    <td>@race.Date  @race.Start</td>
+                    <td>@race.End</td>
+                    <td><button class="btn btn-primary" @onclick="()=>OnRegister(race.Id)">Detail</button></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<Model.Races> races;
+
+    protected override async Task OnInitializedAsync()
+    {
+        races = await Http.GetFromJsonAsync<List<Model.Races>>("sample-data/races.json");
+    }
+
+    private void OnRegister(int Id)
+    {
+        NavigationManager.NavigateTo($"races/{Id}"); 
+    }
+}

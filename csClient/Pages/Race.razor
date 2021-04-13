@@ -1,0 +1,94 @@
+@page "/races/{Id:int}"
+@inject HttpClient Http
+@using System.Linq
+
+
+
+@if (!(RaceData == null))
+{
+    <h1>Závod: @RaceData.Race_Name</h1>
+
+    <p>Organizuje: @RaceData.Organiser</p>
+}
+<h2>Registrace do závodu</h2>
+<EditForm Model="Registration" OnValidSubmit="HandleValidSubmit">
+    @* <DataAnnotationsValidator /> *@
+    <Blazored.FluentValidation.FluentValidationValidator/>
+    <div class="row mt-2">
+        <label for="firstName">Jméno</label>
+        <InputText id="firstName" @bind-Value="Registration.FirstName" class="form-control"/>
+    </div>
+      <div class="row mt-2">
+        <label for="lastName">Příjmení</label>
+        <InputText id="lastName" @bind-Value="Registration.LastName" class="form-control"/>
+    </div>
+      <div class="row mt-4">
+        <label for="age">Věk</label>
+        <InputNumber id="age" @bind-Value="Registration.Age" class="form-control"/>
+    </div>
+      <div class="row mt-4">
+        <label for="gender">Pohlaví</label>
+        <InputText id="gender" @bind-Value="Registration.Gender" class="form-control"/>
+    </div>
+    <div class="row"mt-4>
+        <button type="submit" class="btn btn-primary">Registrovat</button>
+    </div>
+    <div class="row mt-4">
+        <ValidationSummary />
+    </div>
+</EditForm>
+
+@* ---------- *@
+
+@if (Registrations == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Startovní číslo</th>
+                <th>Jméno</th>
+                <th>Příjmení</th>
+                <th>Ročník</th>
+                <th>Pohlaví</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Model.Registrations registration in Registrations)
+            {
+                <tr>
+                    <td>@registration.Id</td>
+                    <td>@registration.FirstName</td>
+                    <td>@registration.LastName</td>
+                    <td>@registration.Age</td>
+                    <td>@registration.Gender</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+    private Model.Races RaceData;
+    private List<Model.Registrations> Registrations;
+    protected Model.Registrations Registration {get;set;} = new Model.Registrations();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var registrations = await Http.GetFromJsonAsync<List<Model.Registrations>>("sample-data/registrations.json");
+        Registrations = registrations.Take(new Random().Next(registrations.Count - 1)).ToList();
+        var races = await Http.GetFromJsonAsync<List<Model.Races>>("sample-data/races.json");
+        RaceData = races.Single(x => x.Id == Id);
+    }
+
+    protected void HandleValidSubmit()
+    {
+        Console.WriteLine($"Registrace pro {Registration.FirstName} {Registration.LastName} dokoncena");
+    }
+
+}
