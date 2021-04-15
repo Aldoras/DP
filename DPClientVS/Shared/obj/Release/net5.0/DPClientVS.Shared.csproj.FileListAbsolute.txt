@@ -1,0 +1,12 @@
+E:\Diplomka\DPClientVS\Shared\bin\Release\net5.0\DPClientVS.Shared.deps.json
+E:\Diplomka\DPClientVS\Shared\bin\Release\net5.0\DPClientVS.Shared.dll
+E:\Diplomka\DPClientVS\Shared\bin\Release\net5.0\ref\DPClientVS.Shared.dll
+E:\Diplomka\DPClientVS\Shared\bin\Release\net5.0\DPClientVS.Shared.pdb
+E:\Diplomka\DPClientVS\Shared\obj\Release\net5.0\DPClientVS.Shared.csprojAssemblyReference.cache
+E:\Diplomka\DPClientVS\Shared\obj\Release\net5.0\DPClientVS.Shared.GeneratedMSBuildEditorConfig.editorconfig
+E:\Diplomka\DPClientVS\Shared\obj\Release\net5.0\DPClientVS.Shared.AssemblyInfoInputs.cache
+E:\Diplomka\DPClientVS\Shared\obj\Release\net5.0\DPClientVS.Shared.AssemblyInfo.cs
+E:\Diplomka\DPClientVS\Shared\obj\Release\net5.0\DPClientVS.Shared.csproj.CoreCompileInputs.cache
+E:\Diplomka\DPClientVS\Shared\obj\Release\net5.0\DPClientVS.Shared.dll
+E:\Diplomka\DPClientVS\Shared\obj\Release\net5.0\ref\DPClientVS.Shared.dll
+E:\Diplomka\DPClientVS\Shared\obj\Release\net5.0\DPClientVS.Shared.pdb

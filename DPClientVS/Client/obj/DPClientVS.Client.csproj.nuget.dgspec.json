@@ -1,0 +1,166 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\Diplomka\\DPClientVS\\Client\\DPClientVS.Client.csproj": {}
+  },
+  "projects": {
+    "E:\\Diplomka\\DPClientVS\\Client\\DPClientVS.Client.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Diplomka\\DPClientVS\\Client\\DPClientVS.Client.csproj",
+        "projectName": "DPClientVS.Client",
+        "projectPath": "E:\\Diplomka\\DPClientVS\\Client\\DPClientVS.Client.csproj",
+        "packagesPath": "C:\\Users\\corvi\\.nuget\\packages\\",
+        "outputPath": "E:\\Diplomka\\DPClientVS\\Client\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\corvi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "E:\\Diplomka\\DPClientVS\\Shared\\DPClientVS.Shared.csproj": {
+                "projectPath": "E:\\Diplomka\\DPClientVS\\Shared\\DPClientVS.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Blazored.FluentValidation": {
+              "target": "Package",
+              "version": "[2.0.0, )"
+            },
+            "Microsoft.AspNetCore.Components.WebAssembly": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.AspNetCore.Components.WebAssembly.DevServer": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "PublishSPAforGitHubPages.Build": {
+              "target": "Package",
+              "version": "[1.2.0, )"
+            },
+            "Syncfusion.Blazor.Buttons": {
+              "target": "Package",
+              "version": "[19.1.0.56, )"
+            },
+            "Syncfusion.Blazor.Grid": {
+              "target": "Package",
+              "version": "[19.1.0.56, )"
+            },
+            "Syncfusion.Blazor.Navigations": {
+              "target": "Package",
+              "version": "[19.1.0.56, )"
+            },
+            "System.Net.Http.Json": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Runtime.browser-wasm",
+              "version": "[5.0.5, 5.0.5]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "browser-wasm": {
+          "#import": []
+        }
+      }
+    },
+    "E:\\Diplomka\\DPClientVS\\Shared\\DPClientVS.Shared.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Diplomka\\DPClientVS\\Shared\\DPClientVS.Shared.csproj",
+        "projectName": "DPClientVS.Shared",
+        "projectPath": "E:\\Diplomka\\DPClientVS\\Shared\\DPClientVS.Shared.csproj",
+        "packagesPath": "C:\\Users\\corvi\\.nuget\\packages\\",
+        "outputPath": "E:\\Diplomka\\DPClientVS\\Shared\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\corvi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

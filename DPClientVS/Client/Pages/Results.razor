@@ -1,0 +1,119 @@
+﻿@page "/results"
+@using System.Globalization
+@inject HttpClient Http
+
+@if (ResultsData == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    if (!ShowingResults)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Název Závodu</th>
+                    @*<th>Organizér</th>
+                        <th>Start</th>
+                        <th>Konec</th>*@
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Model.Result race in ResultsData)
+                {
+                    <tr>
+                        <td>@race.RaceName</td>
+                        @*<td>@race.Organiser</td>
+                            <td>@race.Date  @race.Start</td>
+                            <td>@race.End</td>*@
+                        <td><button class="btn btn-primary" @onclick="() => OnResultOpen(race.RaceName)">Detail</button></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        if (SelectedResults != null)
+        {
+            <button class="btn btn-primary" @onclick="OnResultClose">Zpět</button>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Pořadí</th>
+                        <th>Jméno</th>
+                        <th>Příjmení</th>
+                        <th>Start</th>
+                        <th>Konec</th>
+                        <th>Čas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Model.Result race in SelectedResults)
+                    {
+                        <tr>
+                            <td></td>
+                            <td>@race.FirstName</td>
+                            <td>@race.LastName</td>
+                            <td>@race.Start</td>
+                            <td>@race.Finish</td>
+                            <td>@(DateTime.ParseExact(race.Finish, "H:mm", CultureInfo.InvariantCulture) - DateTime.ParseExact(race.Start, "H:mm", CultureInfo.InvariantCulture))</td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    }
+}
+
+<style>
+    table {
+        counter-reset: rowNumber;
+    }
+
+        table tbody tr {
+            counter-increment: rowNumber;
+        }
+
+            table tbody tr td:first-child::before {
+                content: counter(rowNumber);
+                min-width: 1em;
+                margin-right: 0.5em;
+            }
+
+</style>
+
+
+
+
+
+
+
+
+
+
+@code {
+    private bool ShowingResults { get; set; } = false;
+    private List<Model.Result> SelectedResults;
+    private List<Model.Result> ResultsData;
+
+    protected override async Task OnInitializedAsync()
+    {
+        ResultsData = await Http.GetFromJsonAsync<List<Model.Result>>("sample-data/results.json");
+    }
+
+    protected void OnResultOpen(string raceName)
+    {
+        SelectedResults = ResultsData.Where(x => x.RaceName == raceName)
+            .OrderBy(x => DateTime.ParseExact(x.Finish, "H:mm", CultureInfo.InvariantCulture) - DateTime.ParseExact(x.Start, "H:mm", CultureInfo.InvariantCulture))
+            .ToList();
+        ShowingResults = true;
+    }
+    protected void OnResultClose()
+    {
+        ShowingResults = false;
+        SelectedResults = null;
+    }
+}
